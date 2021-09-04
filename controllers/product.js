@@ -27,7 +27,7 @@ exports.listAll = async (req, res) => {
 
 exports.remove = async (req, res) => {
   try {
-    const deleted = await findOneAndRemove({
+    const deleted = await Product.findOneAndRemove({
       slug: req.params.slug,
     }).exec();
     res.json(deleted);
