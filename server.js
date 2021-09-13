@@ -11,7 +11,7 @@ const app = express();
 
 // db
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect(process.env.DATABASE_CLOUD, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -21,7 +21,7 @@ mongoose
   .catch((err) => console.log("DB CONNECTION ERR", err));
 
 // middlewares
-app.use(morgan("dev"));
+//app.use(morgan("dev"));
 app.use(express.json({ limit: "2mb" }));
 app.use(cors());
 
