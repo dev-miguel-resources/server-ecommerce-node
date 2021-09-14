@@ -10,8 +10,9 @@ require("dotenv").config();
 const app = express();
 
 // db
+// change to database_cloud for production
 mongoose
-  .connect(process.env.DATABASE_CLOUD, {
+  .connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -21,7 +22,8 @@ mongoose
   .catch((err) => console.log("DB CONNECTION ERR", err));
 
 // middlewares
-//app.use(morgan("dev"));
+// comment this line for production or uninstall
+app.use(morgan("dev"));
 app.use(express.json({ limit: "2mb" }));
 app.use(cors());
 
